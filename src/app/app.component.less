@@ -1,0 +1,21 @@
+header {
+  box-shadow: 1px 8px 8px 1px rgb(240, 240, 240);
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.words {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  padding-top: 10px;
+  @media (max-width: 992px) {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}

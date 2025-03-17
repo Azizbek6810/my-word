@@ -1,8 +1,18 @@
 <header class="header">
-  <nav class="brand-name">
-   <span>
-     <img src="../assets/logo.svg" alt="">ords
-   </span> 
-  </nav>
+  <div class="container">
+    <nav class="brand-name">
+      <span>
+        <img src="../assets/logo.svg" alt="" />
+      </span>
+    </nav>
+  </div>
 </header>
-<main class="container"></main>
+
+<main class="container">
+  <input type="text" placeholder="Izlash" />
+  <button type="button">Qidirish</button>
+
+  <div class="words">
+    <app-word *ngFor="let item of words" [word]="item"></app-word>
+  </div>
+</main>
