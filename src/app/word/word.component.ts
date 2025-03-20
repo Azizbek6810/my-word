@@ -1,12 +1,5 @@
 import { Component, Input } from '@angular/core';
-
-export interface Word {
-  id: number;
-  newWord: string;
-  translation: string;
-  example: string;
-  photo: string;
-}
+import { Word } from '../word';
 
 @Component({
   selector: 'app-word',

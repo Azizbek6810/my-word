@@ -1,8 +1,8 @@
 <main class="container">
-    <input type="text" placeholder="Izlash" />
-    <button type="button">Qidirish</button>
+    <input type="text" placeholder="Izlash" #firstName/>
+    <button type="button" (click)="search(firstName.value)">Qidirish</button>
   
     <div class="words">
-      <app-word *ngFor="let item of words" [word]="item"></app-word>
+      <app-word *ngFor="let item of filteredWords" [word]="item"></app-word>
     </div>
   </main>
