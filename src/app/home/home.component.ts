@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Word } from '../word';
 import { WordService } from '../word.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,16 +14,22 @@ export class HomeComponent {
    */
   filteredWords!: Word[];
 
-  constructor(private wordService: WordService) {
-    this.filteredWords = wordService.words;
+  constructor(private wordService: WordService, private router: Router) {
+    this.filteredWords = wordService.getAllWords();
   }
   /**
    *
    * @param text
    */
   search(text: string) {
-    this.filteredWords = this.wordService.words.filter((word) =>
-      word.newWord.toLowerCase().includes(text.toLowerCase())
-    );
+    this.filteredWords = this.wordService
+      .getAllWords()
+      .filter((word) =>
+        word.newWord.toLowerCase().includes(text.toLowerCase())
+      );
+  }
+
+  navigateToDetails() {
+   this.router.navigate(['details'])
   }
 }

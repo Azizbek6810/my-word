@@ -3,7 +3,7 @@ import { Word } from './word';
 
 @Injectable()
 export class WordService {
-      /**
+  /**
    *
    */
   words: Word[] = [
@@ -71,4 +71,12 @@ export class WordService {
       photo: '../assets/n6.jpg',
     },
   ];
+
+  getAllWords() {
+    return this.words;
+  }
+
+  getWordById(id: number): Word | undefined {
+    return this.words.find((i) => i.id === id);
+  }
 }
