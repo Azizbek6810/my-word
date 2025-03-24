@@ -13,23 +13,25 @@ export class HomeComponent {
    *
    */
   filteredWords!: Word[];
+  words!: Word[];
 
   constructor(private wordService: WordService, private router: Router) {
-    this.filteredWords = wordService.getAllWords();
+    wordService.getAllWords().then((words) => {
+      this.words = words;
+      this.filteredWords = words;
+    });
   }
   /**
    *
    * @param text
    */
   search(text: string) {
-    this.filteredWords = this.wordService
-      .getAllWords()
-      .filter((word) =>
-        word.newWord.toLowerCase().includes(text.toLowerCase())
-      );
+    this.filteredWords = this.words.filter((word) =>
+      word.newWord.toLowerCase().includes(text.toLowerCase())
+    );
   }
 
   navigateToDetails() {
-   this.router.navigate(['details'])
+    this.router.navigate(['details']);
   }
 }
